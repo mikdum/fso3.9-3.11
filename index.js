@@ -35,7 +35,9 @@ var persons = [
 
 
 app.get('/', (request, response) => {
-  response.send('<h1>12Hello World!</h1>')
+  const personsstr='<div><h1>Persons</h1>'+persons.reduce((current,x)=>current+`<div key=${x.id}> ${x.name}</div>`,'')+'</div>'
+  
+  response.send(personsstr)
 })
 
 app.get('/api/persons', (request, response) => {
